@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-11-25
-- **Archive ID:** `0TH-2026-014`
+- **Archive ID:** `0TH-2026-016`
 
 ## Context
 Large Mathlib-dependent formalizations introduce tens of thousands of transitive declarations, heavy build caches, frequent API drift, and often rely on `native_decide` (which adds `Lean.ofReduceBool` / `Lean.trustCompiler` to the trusted computing base).

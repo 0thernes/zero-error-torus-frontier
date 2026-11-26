@@ -65,7 +65,7 @@ git bundle verify zero-error-torus-frontier-v1.0.0.bundle
 ```
 In addition to GitHub, this repository is mirrored permanently via:
 1. **Software Heritage Archive** (Save Code Now snapshot triggered at release `v1.0.0`).
-2. **Master Research Archive (`0thernes-research-archive`)** as Tier I entry `0TH-2026-014` with pinned submodule commit, frozen PDF copy, and SHA-256 checksum manifest.
+2. **Master Research Archive (`0thernes-research-archive`)** as Tier I entry `0TH-2026-016` with pinned submodule commit, frozen PDF copy, and SHA-256 checksum manifest.
 
 ## Regenerating Checksums & `llms-full.txt`
 Whenever any frozen artifact changes, regenerate `MANIFEST.sha256`, `data/MANIFEST.sha256`, and `llms-full.txt` before tagging a release.

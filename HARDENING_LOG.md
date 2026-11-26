@@ -1,4 +1,4 @@
-# Hardening Log (`zero-error-torus-frontier` v1.0.0 — Archive `0TH-2026-014`)
+# Hardening Log (`zero-error-torus-frontier` v1.0.0 — Archive `0TH-2026-016`)
 
 Three full, independent hardening cycles were executed across every directory, file, theorem, numerical certificate, citation, figure, documentation page, and Build Standard v1.2.0 / Playbook v1.3 check, classifying every finding into the ten Build Standard finding classes (`bug`, `error`, `issue`, `problem`, `concern`, `dilemma`, `conflict`, `gap`, `hole`, `blindspot`).
 

@@ -32,7 +32,9 @@ int main(void) {
     assert(!zef_verify_q_hbpz(25, NULL, 1u));
     Pair2 oob[1] = {{25, 0}};
     assert(!zef_verify_q_hbpz(25, oob, 1u));
-    assert(!zef_verify_q_hstar(25, bad_hbpz, 2u));
+    Pair2 bad_hstar[2] = {{0, 0}, {1, 7}};
+    assert(!zef_verify_q_hstar(25, bad_hstar, 2u));
+    assert(zef_verify_q_hstar(25, bad_hbpz, 2u)); /* dy=2 > 1 is valid in H* 3x15 ball! */
     assert(zef_baumert_factored_card(3, bad_hbpz, 1u) == 0u);
     assert(zef_quotient_ball_size(0, 0, 0, 2, 4) == 0u);
 

@@ -2,7 +2,7 @@
 
 ## `v1.0.0` (Initial Public Release — 2026-11-25)
 
-This is the initial release (`v1.0.0`, archive ID `0TH-2026-014`). No breaking upgrades apply.
+This is the initial release (`v1.0.0`, archive ID `0TH-2026-016`). No breaking upgrades apply.
 
 ### Toolchain Compatibility
 

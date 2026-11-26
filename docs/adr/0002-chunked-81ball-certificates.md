@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2026-11-25
-- **Archive ID:** `0TH-2026-014`
+- **Archive ID:** `0TH-2026-016`
 
 ## Context
 Certifying the Baumert-pullback port systems for $C_{27}$ (31,466 words, 88 ports) and $C_{31}$ (54,913 words, 133 ports) and verifying 2,427-digit integer powers at $p=2048$ naively inside Lean's pure kernel hits default `maxRecDepth` (512) and heartbeat limits unless either `native_decide` or global option overrides are used—both of which degrade kernel auditability.

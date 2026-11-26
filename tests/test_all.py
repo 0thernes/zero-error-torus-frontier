@@ -124,7 +124,7 @@ def test_golden_witnesses_contract() -> None:
     wpath = ROOT / "data" / "witnesses.json"
     data = json.loads(wpath.read_text(encoding="utf-8"))
     assert data["schema_version"] == "1.0.0"
-    assert data["archive_id"] == "0TH-2026-014"
+    assert data["archive_id"] == "0TH-2026-016"
     assert set(data["records"].keys()) == {"C25", "C27", "C29", "C31"}
     assert len(data["c27_baumert_ports"]["ports"]) == 88
     assert len(data["c27_baumert_ports"]["A"]) == 237

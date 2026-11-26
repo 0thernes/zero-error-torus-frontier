@@ -1,4 +1,4 @@
-# zero-error-torus-frontier (v1.0.0, Archive ID 0TH-2026-014)
+# zero-error-torus-frontier (v1.0.0, Archive ID 0TH-2026-016)
 
 > Zero-Mathlib Lean 4.35.0 six-kernel formalization, multi-language verification suite (Rust, ISO C11, Python), and AMS-LaTeX preprint on zero-error Shannon capacity of odd cycles and strong-product graphs by Alexander Stephen Donahue (ORCID 0009-0006-8168-9648).
 

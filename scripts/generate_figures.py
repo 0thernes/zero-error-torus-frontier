@@ -415,7 +415,7 @@ def generate_social_preview() -> None:
   </defs>
   <rect width="1280" height="640" fill="url(#bg)"/>
   <rect x="0" y="0" width="1280" height="8" fill="url(#acc)"/>
-  <text x="72" y="108" fill="#56B4E9" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">0TH-2026-014 · ZERO-MATHLIB LEAN 4.35.0 · 6 PROOF KERNELS</text>
+  <text x="72" y="108" fill="#56B4E9" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">0TH-2026-016 · ZERO-MATHLIB LEAN 4.35.0 · 6 PROOF KERNELS</text>
   <text x="72" y="182" fill="#FFFFFF" font-family="Georgia, serif" font-size="54" font-weight="700">Zero-Error Torus Frontier</text>
   <text x="72" y="232" fill="#CBD5E1" font-family="Segoe UI, Arial, sans-serif" font-size="25">Coset-Quotient Compression · 4 Odd-Cycle World Records · Haemers Schläfli Paradox</text>
   <rect x="72" y="274" width="268" height="170" rx="12" fill="#111C38" stroke="#00B4D8" stroke-width="2"/>

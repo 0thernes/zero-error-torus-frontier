@@ -1,4 +1,4 @@
-# Zero-Error Torus Frontier (`0TH-2026-014`)
+# Zero-Error Torus Frontier (`0TH-2026-016`)
 
 [![CI](https://github.com/0thernes/zero-error-torus-frontier/actions/workflows/ci.yml/badge.svg)](https://github.com/0thernes/zero-error-torus-frontier/actions/workflows/ci.yml)
 [![Pages](https://github.com/0thernes/zero-error-torus-frontier/actions/workflows/pages.yml/badge.svg)](https://0thernes.github.io/zero-error-torus-frontier/)

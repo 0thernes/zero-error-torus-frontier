@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 schema_version: "1.0"
-id: "0TH-2026-014"
+id: "0TH-2026-016"
 repository: "https://github.com/0thernes/zero-error-torus-frontier"
 version: "1.0.0"
 title: "Zero-Error Torus Frontier: Algebraic Coset-Quotient Compression, Multi-Alphabet Separation Calculus, Four Odd-Cycle Capacity World Records, and Haemers's Schläfli Paradox"

@@ -1,6 +1,6 @@
 # Adversarial Red-Team Review (`zero-error-torus-frontier` v1.0.0)
 
-This adversarial review actively attempted to falsify, break, or find epistemic overclaims across every layer of `zero-error-torus-frontier` (`0TH-2026-014`).
+This adversarial review actively attempted to falsify, break, or find epistemic overclaims across every layer of `zero-error-torus-frontier` (`0TH-2026-016`).
 
 ## Attack Vectors Tested & Verdicts
 

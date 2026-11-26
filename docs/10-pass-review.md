@@ -1,6 +1,6 @@
 # 10-Pass Independent Research Quality Review (Playbook v1.3)
 
-This structured 10-pass review records our full audit of `zero-error-torus-frontier` (`0TH-2026-014`) against `DEFENSIBLE_INDEPENDENT_AI_RESEARCH_PLAYBOOK.md` v1.3.
+This structured 10-pass review records our full audit of `zero-error-torus-frontier` (`0TH-2026-016`) against `DEFENSIBLE_INDEPENDENT_AI_RESEARCH_PLAYBOOK.md` v1.3.
 
 | Pass | Review Dimension | Outcome | Concrete Findings & Remediations |
 |---:|---|---|---|
@@ -13,4 +13,4 @@ This structured 10-pass review records our full audit of `zero-error-torus-front
 | **7** | **Citation & scholarly integrity** | PASS | Live HTTP audit (`scripts/check_citations.py --live`) caught 2 bad DOIs (`hales1973numerical`, `bohman2005limit2`); both corrected via Crossref API (`10.1016/0095-8956(73)90014-2` and `10.1090/S0002-9939-04-07470-2`); all 20/20 citations now resolve HTTP 200/202. |
 | **8** | **Typography, figures & visual QA** | PASS | Visually inspected all 5 PNG figures and rendered PDF pages; fixed Fig 1 bar clipping, Fig 2 title margin & legend overlap, Fig 3 intermediate-code scaling & clipping, LaTeX `--paranoid` en-dash ligatures, double periods after `\paragraph`, and all overfull hboxes. |
 | **9** | **Epistemic honesty & limitations** | PASS | Explicitly tags `C-EX1` as `[EXACT-COMP]` and `O-1` (`CS-049`: exact $\Theta(C_n)$, $n \ge 7$) as `[OPEN]`; includes transparent AI-assistance disclosure, CRediT, COI, and exact `Independent Researcher` identity (zero `0thernes LLC`). |
-| **10** | **Reproducibility, provenance & archival** | PASS | Clean-room `arxiv_submission.tar.gz` verified, `MANIFEST.sha256` + `data/MANIFEST.sha256`, GitHub Release SLSA attestation, Software Heritage snapshot, and `0TH-2026-014` archive registration. |
+| **10** | **Reproducibility, provenance & archival** | PASS | Clean-room `arxiv_submission.tar.gz` verified, `MANIFEST.sha256` + `data/MANIFEST.sha256`, GitHub Release SLSA attestation, Software Heritage snapshot, and `0TH-2026-016` archive registration. |

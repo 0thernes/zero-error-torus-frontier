@@ -58,7 +58,7 @@ def main() -> None:
 
     payload = {
         "schema_version": "1.0.0",
-        "archive_id": "0TH-2026-014",
+        "archive_id": "0TH-2026-016",
         "lean_version": "4.35.0",
         "kernels": ["lean", "leanchecker-paranoid", "lean4lean", "nanoda", "con-leche", "con-ron"],
         "nodes": enriched,
