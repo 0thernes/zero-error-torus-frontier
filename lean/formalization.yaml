@@ -3,7 +3,7 @@ schema_version: "1.0"
 id: "0TH-2026-016"
 repository: "https://github.com/0thernes/zero-error-torus-frontier"
 version: "1.0.0"
-title: "Zero-Error Torus Frontier: Algebraic Coset-Quotient Compression, Multi-Alphabet Separation Calculus, Four Odd-Cycle Capacity World Records, and Haemers's Schläfli Paradox"
+title: "Coset-Quotient Compression, Separation-Graph Barriers, and Multi-Kernel Verified Frontiers for Zero-Error Shannon Capacity"
 author:
   name: "Alexander Stephen Donahue"
   orcid: "0009-0006-8168-9648"
@@ -94,3 +94,6 @@ theorems:
     module: "ZeroErrorFrontier.HaemersParadox"
 open_problems_explicitly_not_claimed:
   - "CS-049: Exact Shannon capacity Θ(C_n) for any odd n >= 7 (including C_7, C_25, C_27, C_29, C_31)"
+  - "No published open problem is resolved: T3c is a two-alphabet form of the BPZ combining rule (Tandon arXiv:2608.30273, Proposition 1); the two-sided extension of Tandon's Theorem 1 is not addressed"
+  - "The C_27 and C_31 lower bounds (T2b, T2d) are below the values of Codenotti-Gerace-Resta 2003, Table 1; the theorem names t2b_c27_world_record and t2d_c31_world_record are historical"
+  - "Θ is not defined in Lean; capacity bounds follow from integer statements about independent sets in strong powers"

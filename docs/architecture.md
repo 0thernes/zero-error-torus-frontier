@@ -21,7 +21,7 @@ The repository is organized as a **four-pillar mathematical proof stack** backed
   H_BPZ vs H*      Chunked 81-ball certs           G_7 C_5 core       SimpleField rank
   45 vs 49 ball    28-digit monotonic trunc.       T3b barrier        Z^8 Bessel handle
   Helical / H*     C25, C27, C29, C31              Hetero compose     Z[√5] M_5, G_27
-  Baumert pull     15-decimal ULP floors           Pure-kernel tables 27 > 21 paradox
+  Baumert pull     15-decimal ULP floors           Pure-kernel tables 27 > 21 example
         └────────────────┴───────────────┬───────────────┴────────────────┘
                                          ▼
                                    GraphCore.lean

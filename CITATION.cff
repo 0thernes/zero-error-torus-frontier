@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: "Quotient-Torus Port Lifting, Infinite Odd-Cycle Packing Families, and Zero-Mathlib Six-Kernel Certificates for Zero-Error Shannon Capacity"
+title: "Coset-Quotient Compression, Separation-Graph Barriers, and Multi-Kernel Verified Frontiers for Zero-Error Shannon Capacity"
 message: "If you use these formal proofs, verification engines, or manuscript results, please cite this repository."
 type: software
 version: "1.0.0"
@@ -24,14 +24,20 @@ keywords:
   - "Schlafli graph"
   - "Lovasz theta"
 abstract: >-
-  A zero-Mathlib Lean 4.35.0 formalization (verified across six independent proof kernels
-  with zero native_decide and zero sorry), companion Rust/C11/Python verification engines,
-  and AMS-LaTeX preprint establishing: (1) the Intra-Coset Obstruction Theorem for 2D
-  quotient codes in C_n^4 and discovery of the 45-ball subgroup H* = <(1,0,0,2),(0,1,0,4)>
-  yielding infinite exact-ceiling odd-cycle packings for n = 8k+1 and automatic n^2-port
-  systems for n = 16j+9; (2) four consecutive new all-time lower bounds on the Shannon
-  capacity of odd cycles C_25, C_27, C_29, and C_31; (3) exact anatomy, induced C_5 engine,
-  weighted fractional-clique-cover barrier, and two-sided heterogeneous composition for the
-  7-letter separation calculus (resolving Tandon arXiv:2608.30273 Open Problem #2); and
-  (4) the first zero-Mathlib six-kernel proofs of Lovasz's pentagon theorem Theta(C_5)=sqrt(5)
-  and Haemers's 1979 Schlafli-graph Shannon super-multiplicativity paradox.
+  A zero-Mathlib Lean 4.35.0 formalization (checked by six proof kernels, with zero
+  native_decide and no sorry outside the statement-only comparator stub), companion
+  Rust/C11/Python verification engines, and an AMS-LaTeX preprint. Lean proves: (1) lifting
+  of independent sets from two quotient graphs to C_n^4 for the subgroups
+  H_BPZ = <(1,0,0,2),(0,1,2,0)> and H* = <(1,0,0,2),(0,1,0,4)>, double-counting ceilings for
+  these quotients, and two families of coset-union codes for n = 4m+1 and n = 8k+1 that meet
+  them; many of these sizes were published by Baumert et al. (1971) and Codenotti, Gerace and
+  Resta (2003); (2) four lower bounds on the Shannon capacity of odd cycles:
+  Theta(C_25) >= 12.344196091426841 and Theta(C_29) >= 14.319949949077991, which exceed the
+  largest published values found (Codenotti-Gerace-Resta 2003, Table 1), and
+  Theta(C_27) >= 13.319390984674515 and Theta(C_31) >= 15.308776193986504, which are below
+  the values in that table; (3) a two-alphabet form of the BPZ combining rule (Tandon,
+  arXiv:2608.30273, Proposition 1), admissibility of five BPZ tables, a weighted
+  clique-cover upper bound, and alpha(G_7^d) <= 3^d for a 7-label graph; and (4) integer
+  forms of Haemers's rank bound, Lovasz's pentagon bound and Haemers's 1979 Schlafli-graph
+  example. Theta is not defined in Lean; capacity bounds follow from integer statements.
+  No published open problem is resolved, and exact Theta(C_n) for odd n >= 7 remains open.
