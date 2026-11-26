@@ -1,0 +1,11 @@
+---
+description: Canonical build standard and zero-Mathlib Lean 4.35.0 rules for zero-error-torus-frontier
+globs: ["**/*"]
+alwaysApply: true
+---
+
+Follow `AGENTS.md` and `docs/build-standard.md` without exception:
+- Zero Mathlib, zero `sorry`, zero `admit`, zero `native_decide`, zero custom axioms in `lean/`.
+- Every `.lean` file begins with `module` and verifies cleanly under strict axioms `[propext, Classical.choice, Quot.sound]`.
+- Author identity: Alexander Stephen Donahue (Independent Researcher, Spokane, WA, USA, ORCID 0009-0006-8168-9648).
+- Direct commits to `main`, unsigned commits/tags, report-only CI, Apache-2.0 code + CC-BY-4.0 docs/paper.

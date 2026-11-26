@@ -1,0 +1,40 @@
+'ZeroErrorFrontier.Palomar.prove_t1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t1c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t1d' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t1e' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t1f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t2a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t2b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t2c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t2d' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t3a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t3b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t3c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t4a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t4b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t4c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_t4d' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.Palomar.prove_all_frontier_theorems' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.NonVacuity.nonvacuity_t1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.NonVacuity.nonvacuity_t1b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.NonVacuity.nonvacuity_t1d_t1e' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.NonVacuity.nonvacuity_t1f' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.NonVacuity.nonvacuity_t3b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.NonVacuity.nonvacuity_t3c' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.NonVacuity.nonvacuity_t4a_t4b' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.AdversarialTests.boundary_hbpz_fails_at_n7' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ZeroErrorFrontier.AdversarialTests.boundary_hbpz_intracoset_collision_n3' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ZeroErrorFrontier.AdversarialTests.no_27_cosets_in_qGraphHBPZ_21' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ZeroErrorFrontier.AdversarialTests.no_38_cosets_in_qGraphHStar_25' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'ZeroErrorFrontier.AdversarialTests.g7_not_bipartite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.AdversarialTests.no_size_6_in_c5_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'ZeroErrorFrontier.AdversarialTests.schlafli_sharp_ceilings' depends on axioms: [propext, Classical.choice, Quot.sound]

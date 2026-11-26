@@ -1,0 +1,17 @@
+# ADR 0002: Chunked 81-Ball Certificates & 28-Digit Monotonic Truncation
+
+- **Status:** Accepted
+- **Date:** 2026-11-25
+- **Archive ID:** `0TH-2026-014`
+
+## Context
+Certifying the Baumert-pullback port systems for $C_{27}$ (31,466 words, 88 ports) and $C_{31}$ (54,913 words, 133 ports) and verifying 2,427-digit integer powers at $p=2048$ naively inside Lean's pure kernel hits default `maxRecDepth` (512) and heartbeat limits unless either `native_decide` or global option overrides are used—both of which degrade kernel auditability.
+
+## Decision
+1. **81-ball local membership certification:** Replace explicit 54,913-word lists with $O(1)$ bitmask quotient membership (`inMaskHBPZ4`) plus zero-division explicit-coordinate 81-neighbor scans (`check81Ball4`).
+2. **Chunked sorted lists ($\le 16$ per chunk):** Partition sorted port/footprint code lists (`ports27C`, `footA27C`, `footD27C`, `ports31C`, `footA31C`, `footD31C`) with range-pruned lookup (`elemSortedChunks`), capping kernel recursion depth at $\le 65 \ll 512$.
+3. **28-digit monotonic fixed-point truncation:** Track rigorous integer lower bounds $L \cdot 10^e \le w(c)$ across each substitution step (`stepLo_tbl`, `stepFinal_code`), proving tight 15-decimal floors to the exact final ULP in ~20 seconds total with zero `native_decide` and zero `maxRecDepth` overrides.
+
+## Consequences
+- All 4 world records verify cleanly in pure kernel reduction across all 6 independent proof checkers.
+- Independently cross-checked to exact 80-digit integer arithmetic in `reference/capacity_oracle.py`.

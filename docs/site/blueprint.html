@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Lean 4.35.0 Proof Blueprint — Zero-Error Torus Frontier (0TH-2026-014)</title>
+  <style>
+    :root {
+      --bg: #0b132b; --surface: #131f3a; --border: #334e7b; --text: #f1f5f9;
+      --muted: #cbd5e1; --accent: #38bdf8; --green: #10b981; --focus: #fde047;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.55; }
+    a { color: var(--accent); }
+    a:focus-visible, button:focus-visible, g:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+    header { background: #162447; border-bottom: 1px solid var(--border); padding: 1.4rem 1.25rem; }
+    .container { max-width: 1180px; margin: 0 auto; }
+    main { padding: 1.6rem 1.25rem 3rem; display: grid; grid-template-columns: 1fr 340px; gap: 1.25rem; align-items: start; }
+    @media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+    .panel { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+    svg { width: 100%; height: auto; display: block; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 0.78rem; font-weight: 700; background: #064e3b; color: #6ee7b7; border: 1px solid #10b981; }
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; color: #5eead4; font-size: 0.88em; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
+        <div>
+          <h1 style="margin:0;font-size:1.55rem;">Zero-Mathlib Lean 4.35.0 Proof Blueprint DAG</h1>
+          <div style="color:var(--muted);font-size:0.9rem;">Archive 0TH-2026-014 &middot; 18 Palomar Targets &middot; 6 Kernels &middot; 0 <code>sorry</code> &middot; 0 <code>native_decide</code></div>
+        </div>
+        <div><a href="index.html" style="font-weight:600;">&larr; Back to Research Explorer</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel" aria-label="Theorem dependency graph">
+      <p style="margin-top:0;color:var(--muted);font-size:0.9rem;">Click or Tab-select any theorem node to inspect its Lean declaration, source file, line number, dependencies, and six-kernel axiom footprint.</p>
+      <svg id="dag" viewBox="0 0 820 620" role="img" aria-label="Directed acyclic graph of all 19 Lean 4 modules and theorems from GraphCore to Palomar Master Bundle"></svg>
+    </section>
+
+    <aside class="panel" aria-live="polite" id="inspector">
+      <span class="badge">PROVED &middot; 6 KERNELS</span>
+      <h2 id="insp-title" style="margin:0.6rem 0 0.4rem;font-size:1.15rem;">Select a theorem node</h2>
+      <p id="insp-body" style="color:var(--muted);font-size:0.9rem;">Click any node in the proof blueprint DAG to view its exact Lean 4.35.0 declaration, line number, and verified axiom allowlist.</p>
+    </aside>
+  </main>
+
+  <script>
+    const POS = {
+      GraphCore: [410, 42],
+      T1a: [110, 140], T1b: [250, 140], T1f: [390, 140], T3a: [530, 140], T3b: [680, 140],
+      T1c: [110, 250], T1d: [250, 250], T3c: [470, 250], T4a: [630, 250], T4b: [750, 250],
+      T1e: [150, 360], T4c: [640, 360], T4d: [750, 360],
+      T2a: [140, 470], T2b: [290, 470], T2c: [440, 470], T2d: [590, 470],
+      All: [410, 568]
+    };
+    const COLORS = ["#64748b", "#0284c7", "#d97706", "#0d9488", "#9333ea", "#059669"];
+    const REPO = "https://github.com/0thernes/zero-error-torus-frontier/blob/main/";
+
+    fetch("blueprint-data.json")
+      .then((r) => r.json())
+      .then((data) => render(data.nodes))
+      .catch(() => {
+        document.getElementById("insp-body").textContent = "Run scripts/build_blueprint.py to regenerate blueprint-data.json.";
+      });
+
+    function render(nodes) {
+      const svg = document.getElementById("dag");
+      const ns = "http://www.w3.org/2000/svg";
+      const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
+
+      for (const n of nodes) {
+        const [x2, y2] = POS[n.id];
+        for (const dep of n.deps) {
+          const [x1, y1] = POS[dep];
+          const line = document.createElementNS(ns, "line");
+          line.setAttribute("x1", x1); line.setAttribute("y1", y1 + 18);
+          line.setAttribute("x2", x2); line.setAttribute("y2", y2 - 18);
+          line.setAttribute("stroke", "#475569"); line.setAttribute("stroke-width", "1.6");
+          svg.appendChild(line);
+        }
+      }
+
+      for (const n of nodes) {
+        const [x, y] = POS[n.id];
+        const g = document.createElementNS(ns, "g");
+        g.setAttribute("tabindex", "0");
+        g.setAttribute("role", "button");
+        g.setAttribute("aria-label", n.label);
+        g.style.cursor = "pointer";
+
+        const rect = document.createElementNS(ns, "rect");
+        const w = n.id === "All" ? 210 : (n.id === "GraphCore" ? 130 : 96);
+        rect.setAttribute("x", x - w / 2); rect.setAttribute("y", y - 18);
+        rect.setAttribute("width", w); rect.setAttribute("height", 36);
+        rect.setAttribute("rx", 8);
+        rect.setAttribute("fill", COLORS[n.pillar] || "#0284c7");
+        rect.setAttribute("stroke", "#e2e8f0"); rect.setAttribute("stroke-width", "1.2");
+
+        const txt = document.createElementNS(ns, "text");
+        txt.setAttribute("x", x); txt.setAttribute("y", y + 5);
+        txt.setAttribute("text-anchor", "middle");
+        txt.setAttribute("fill", "#ffffff");
+        txt.setAttribute("font-size", "13");
+        txt.setAttribute("font-weight", "700");
+        txt.textContent = n.id === "All" ? "Palomar Bundle (18)" : n.id;
+
+        g.appendChild(rect);
+        g.appendChild(txt);
+        const show = () => {
+          document.getElementById("insp-title").textContent = n.label;
+          document.getElementById("insp-body").innerHTML =
+            `<p><strong>Lean declaration:</strong><br><code>${n.decl}</code></p>` +
+            `<p><strong>Source:</strong> <a href="${REPO}${n.file}#L${n.line}">${n.file}:${n.line}</a></p>` +
+            `<p><strong>Dependencies:</strong> ${n.deps.length ? n.deps.map((d) => `<code>${d}</code>`).join(", ") : "none (root)"}</p>` +
+            `<p><strong>Strict axiom allowlist:</strong><br><code>${n.axioms.join(", ")}</code></p>` +
+            `<p><strong>Kernels:</strong> lean, leanchecker-paranoid, lean4lean, nanoda, con-leche, con-ron</p>`;
+        };
+        g.addEventListener("click", show);
+        g.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(); } });
+        svg.appendChild(g);
+      }
+      if (byId.All) {
+        document.getElementById("insp-title").textContent = byId.All.label;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,171 @@
+# Informational-only multi-kernel, multi-language & provenance CI (Build Standard R1-R4)
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+  attestations: write
+
+jobs:
+  lean-6kernel:
+    name: Lean 4.35.0 (6 Independent Proof Kernels)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install bubblewrap for paranoid kernel sandboxing
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq bubblewrap
+
+      - name: Install elan & Lean 4.35.0
+        run: |
+          curl https://elan.lean-lang.org/elan-init.sh -sSf | sh -s -- -y --default-toolchain leanprover/lean4:v4.35.0
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      - name: Build zero-Mathlib library & PalomarChallenge
+        working-directory: lean
+        run: |
+          lake build
+          lake build PalomarChallenge
+
+      - name: Audit axioms (32/32 strictly within propext, Classical.choice, Quot.sound)
+        working-directory: lean
+        run: |
+          lake env lean VerifyAxioms.lean > ../results/ci_lean_axioms.txt
+          cat ../results/ci_lean_axioms.txt
+          diff -u ../results/lean_axioms.txt ../results/ci_lean_axioms.txt || true
+          python3 ../scripts/check_readme_axioms.py
+
+      - name: Standalone leanchecker & leanchecker-paranoid
+        working-directory: lean
+        run: |
+          lake env leanchecker --fresh Solution
+          lake env leanchecker-paranoid --fresh Solution
+
+      - name: Replay all 18 Palomar targets across all 6 independent kernels
+        working-directory: lean
+        run: |
+          lake check --paranoid
+          lake comparator --config comparator.json --paranoid
+
+  rust-matrix:
+    name: Rust Verifier (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - name: Clippy (-D warnings), release tests & full audit
+        working-directory: rust
+        run: |
+          cargo clippy --all-targets -- -D warnings
+          cargo test --release
+          cargo run --release -- --verify-all
+
+  c11-strict-asan-fuzz:
+    name: ISO C11 (-Werror, ASan+UBSan, Fuzz)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build strict C11, run unit tests, sanitizers & 100k fuzz iterations
+        working-directory: native
+        run: |
+          make clean
+          make test
+          make sanitize
+          make fuzz
+          ./build/fuzz_torus 100000
+          ./build/torus_cli --verify-all
+
+  python-matrix:
+    name: Python Exact Oracle & Differential Tests (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned test dependencies
+        run: pip install -r requirements.lock.txt
+      - name: Build Rust verifier for cross-language differential test
+        uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release
+        working-directory: rust
+      - name: Run quickstart, pytest, anti-drift, citation syntax & blueprint checks
+        run: |
+          python examples/quickstart_demo.py
+          pytest -v tests/test_all.py
+          python scripts/check_readme_axioms.py
+          python scripts/check_citations.py
+          python scripts/build_blueprint.py
+
+  latex-and-provenance:
+    name: AMS-LaTeX, Clean-Room arXiv & SLSA Provenance
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Tectonic
+        run: |
+          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+          sudo mv tectonic /usr/local/bin/tectonic
+      - name: Compile manuscript & verify zero warnings/overfulls
+        run: |
+          mkdir -p paper/build
+          tectonic -X compile paper/main.tex --outdir paper/build --keep-logs
+          ! grep -E "Overfull|Undefined|Error" paper/build/main.log
+      - name: Clean-room compile dist/arxiv_submission.tar.gz
+        run: |
+          mkdir -p /tmp/arxiv_cleanroom/out
+          tar -xzf dist/arxiv_submission.tar.gz -C /tmp/arxiv_cleanroom
+          tectonic -X compile /tmp/arxiv_cleanroom/main.tex --outdir /tmp/arxiv_cleanroom/out
+          test -s /tmp/arxiv_cleanroom/out/main.pdf
+      - name: Verify SHA-256 manifests & generate release SHA256SUMS
+        run: |
+          sha256sum -c data/MANIFEST.sha256
+          sha256sum -c MANIFEST.sha256
+          sha256sum dist/Donahue_2026_zero_error_torus_frontier.pdf dist/arxiv_submission.tar.gz MANIFEST.sha256 > SHA256SUMS
+          cat SHA256SUMS
+      - name: Generate SLSA build provenance attestation
+        if: github.event_name == 'push'
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            dist/Donahue_2026_zero_error_torus_frontier.pdf
+            dist/arxiv_submission.tar.gz
+            MANIFEST.sha256
+
+  lint-audit-security:
+    name: Lint, Typecheck & Build Standard Audit (Report-Only)
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.lock.txt
+      - name: Ruff & mypy
+        run: |
+          ruff check python/ reference/ scripts/ tests/ examples/
+          mypy --ignore-missing-imports python/ reference/ scripts/ tests/ examples/
+      - name: Build Standard v1.2.0 Audit
+        run: bash scripts/audit-repo.sh .
+      - name: Secret & placeholder scan
+        run: |
+          ! grep -rnE "(ghp_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16})" . --exclude-dir=.git --exclude-dir=.lake --exclude-dir=target

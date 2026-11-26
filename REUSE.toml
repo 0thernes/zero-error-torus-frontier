@@ -1,0 +1,16 @@
+version = 1
+SPDX-PackageName = "zero-error-torus-frontier"
+SPDX-PackageSupplier = "Alexander Stephen Donahue <0_0@0thernes.art>"
+SPDX-PackageDownloadLocation = "https://github.com/0thernes/zero-error-torus-frontier"
+
+[[annotations]]
+path = ["lean/**", "rust/**", "native/**", "python/**", "reference/**", "tests/**", "scripts/**", "examples/**", ".github/**", "justfile", "pyproject.toml", "repo.yaml"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Alexander Stephen Donahue"
+SPDX-License-Identifier = "Apache-2.0"
+
+[[annotations]]
+path = ["paper/**", "dist/**", "docs/**", "data/**", "results/**", "*.md", "llms*.txt", "CITATION.cff"]
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2026 Alexander Stephen Donahue"
+SPDX-License-Identifier = "CC-BY-4.0"

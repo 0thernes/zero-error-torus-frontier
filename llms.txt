@@ -1,0 +1,16 @@
+# zero-error-torus-frontier (v1.0.0, Archive ID 0TH-2026-014)
+
+> Zero-Mathlib Lean 4.35.0 six-kernel formalization, multi-language verification suite (Rust, ISO C11, Python), and AMS-LaTeX preprint on zero-error Shannon capacity of odd cycles and strong-product graphs by Alexander Stephen Donahue (ORCID 0009-0006-8168-9648).
+
+## Key Entry Points
+
+- [README.md](README.md): High-level overview, headline theorem table, and quickstart.
+- [AGENTS.md](AGENTS.md): Canonical instructions, standing rules, and verification commands.
+- [CLAIMS.md](CLAIMS.md): Numbered claims ledger with `[LEAN-6K]`, `[EXACT-COMP]`, and `[OPEN]` epistemic tags.
+- [LIMITATIONS.md](LIMITATIONS.md): Explicit scope boundaries, non-claims, and threats to validity.
+- [REPLICATION.md](REPLICATION.md): End-to-end offline reproduction protocol.
+- [lean/PalomarChallenge.lean](lean/PalomarChallenge.lean): Statement contract for `lake comparator --paranoid`.
+- [lean/formalization.yaml](lean/formalization.yaml): Machine-readable formalization metadata.
+- [paper/main.tex](paper/main.tex): Publication-grade AMS-LaTeX manuscript source.
+- [dist/Donahue_2026_zero_error_torus_frontier.pdf](dist/Donahue_2026_zero_error_torus_frontier.pdf): Frozen preprint PDF.
+- [docs/site/index.html](docs/site/index.html): Interactive proof blueprint DAG and torus/separation-graph explorer.

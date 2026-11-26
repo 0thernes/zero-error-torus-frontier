@@ -1,0 +1,53 @@
+# SPDX-License-Identifier: Apache-2.0
+# Project manifest for the Build Standard for LLMs v1.2.0. Read by scripts/Audit-Repo.ps1 and scripts/audit-repo.sh.
+standard: "1.2.0"
+name: "zero-error-torus-frontier"
+description: "Zero-Mathlib Lean 4.35.0 six-kernel formalization, multi-language verifiers, and four new odd-cycle Shannon capacity world records (C25, C27, C29, C31)."
+owner: "0thernes"
+year: "2026"
+version: "1.0.0"
+archive_id: "0TH-2026-014"
+project_type: research
+stack: [lean4, rust, c11, python, latex]
+author:
+  name: "Alexander Stephen Donahue"
+  orcid: "0009-0006-8168-9648"
+  email: "0_0@0thernes.art"
+  affiliation: "Independent Researcher, Spokane, WA, USA"
+repository: "https://github.com/0thernes/zero-error-torus-frontier"
+pages_url: "https://0thernes.github.io/zero-error-torus-frontier/"
+licenses:
+  code: "Apache-2.0"
+  docs: "CC-BY-4.0"
+flags:
+  public: true
+  package: true
+  visual: false
+  ui: false
+  native: true
+  ai: false
+  personal_data: false
+  service: false
+  deployed: false
+  api: false
+  perf: false
+  concurrent: false
+  numeric: true
+  experimental: false
+  ml: false
+  formal: true
+items:
+  A19: {status: done, note: "GitHub About description, homepage URL, and research topics configured via gh repo edit."}
+  B03: {status: done, note: "Exact deterministic builds & test_determinism_identical_across_runs in tests/test_all.py + deterministic USTAR arXiv tarball."}
+  B05: {status: done, note: "Every claim C-1a..C-4d has falsifiable Lean theorems and pytest tests in tests/test_all.py."}
+  B06: {status: done, note: "AdversarialTests.lean (7 negative theorems), test_negative_invalid_inputs_rejected, and C11 negative unit tests."}
+  B07: {status: done, note: "test_regression_hstar_four_jump_staircase_and_lovasz_j_term locks both bugs caught during development."}
+  B08: {status: done, note: "test_golden_witnesses_contract verifies data/witnesses.json schema, cardinalities, and exact witnesses."}
+  B11: {status: done, note: "test_differential_python_vs_rust_and_c11 cross-checks Python, Rust, and ISO C11 outputs bit-for-bit."}
+  B12: {status: done, note: "reference/capacity_oracle.py independently parses SeparationCalculus.lean and checks exact integer/80-digit records."}
+  B14: {status: done, note: "test_metamorphic_torus_translation_invariance checks cyclic torus shift invariance."}
+  B20: {status: done, note: "100% exact arbitrary-precision integer, Z[sqrt(5)], F_2, and 80-digit Decimal arithmetic — zero floating-point rounding in any proof or record."}
+  B22: {status: done, note: "Complete zero-Mathlib Lean 4.35.0 formalization (lean/) replayed across 6 independent proof kernels."}
+  B23: {status: n/a, note: "Full deductive Lean 4.35.0 proofs supersede finite-state TLA+/Alloy design model checking."}
+  B24: {status: done, note: "Mathematical core proved in Lean 4.35.0; differential verifier implemented in memory-safe stdlib Rust."}
+  B25: {status: n/a, note: "Mathematical core is formally proved in Lean 4; C11 verifier is audited with -Werror, ASan+UBSan, and libFuzzer/100k fuzzing."}

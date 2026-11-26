@@ -1,0 +1,27 @@
+# SPDX-License-Identifier: Apache-2.0
+# Build artifacts & caches
+lean/.lake/
+rust/target/
+native/build/
+paper/build/
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+*.local
+.DS_Store
+Thumbs.db

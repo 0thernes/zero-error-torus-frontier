@@ -1,0 +1,30 @@
+{
+  "challenge_module": "PalomarChallenge",
+  "solution_module": "PalomarSolution",
+  "theorem_names": [
+    "ZeroErrorFrontier.Palomar.prove_t1a",
+    "ZeroErrorFrontier.Palomar.prove_t1b",
+    "ZeroErrorFrontier.Palomar.prove_t1c",
+    "ZeroErrorFrontier.Palomar.prove_t1d",
+    "ZeroErrorFrontier.Palomar.prove_t1e",
+    "ZeroErrorFrontier.Palomar.prove_t1f",
+    "ZeroErrorFrontier.Palomar.prove_t2a",
+    "ZeroErrorFrontier.Palomar.prove_t2b",
+    "ZeroErrorFrontier.Palomar.prove_t2c",
+    "ZeroErrorFrontier.Palomar.prove_t2d",
+    "ZeroErrorFrontier.Palomar.prove_t3a",
+    "ZeroErrorFrontier.Palomar.prove_t3b",
+    "ZeroErrorFrontier.Palomar.prove_t3c",
+    "ZeroErrorFrontier.Palomar.prove_t4a",
+    "ZeroErrorFrontier.Palomar.prove_t4b",
+    "ZeroErrorFrontier.Palomar.prove_t4c",
+    "ZeroErrorFrontier.Palomar.prove_t4d",
+    "ZeroErrorFrontier.Palomar.prove_all_frontier_theorems"
+  ],
+  "definition_names": [],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ]
+}

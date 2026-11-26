@@ -1,0 +1,25 @@
+# SPDX-License-Identifier: Apache-2.0
+name = "ZeroErrorFrontier"
+version = "1.0.0"
+defaultTargets = ["ZeroErrorFrontier", "Challenge", "Solution", "PalomarSolution"]
+
+[leanOptions]
+autoImplicit = false
+relaxedAutoImplicit = false
+linter.unusedVariables = true
+linter.deprecated = true
+
+[[lean_lib]]
+name = "ZeroErrorFrontier"
+
+[[lean_lib]]
+name = "Challenge"
+
+[[lean_lib]]
+name = "Solution"
+
+[[lean_lib]]
+name = "PalomarChallenge"
+
+[[lean_lib]]
+name = "PalomarSolution"

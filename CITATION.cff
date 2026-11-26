@@ -1,0 +1,37 @@
+cff-version: 1.2.0
+title: "Quotient-Torus Port Lifting, Infinite Odd-Cycle Packing Families, and Zero-Mathlib Six-Kernel Certificates for Zero-Error Shannon Capacity"
+message: "If you use these formal proofs, verification engines, or manuscript results, please cite this repository."
+type: software
+version: "1.0.0"
+date-released: "2026-11-25"
+license: Apache-2.0
+repository-code: "https://github.com/0thernes/zero-error-torus-frontier"
+url: "https://0thernes.github.io/zero-error-torus-frontier/"
+authors:
+  - family-names: "Donahue"
+    given-names: "Alexander Stephen"
+    orcid: "https://orcid.org/0009-0006-8168-9648"
+    email: "0_0@0thernes.art"
+    affiliation: "Independent Researcher, Spokane, WA, USA"
+keywords:
+  - "Shannon capacity"
+  - "zero-error information theory"
+  - "odd cycles"
+  - "strong graph product"
+  - "Lean 4"
+  - "formal verification"
+  - "Haemers bound"
+  - "Schlafli graph"
+  - "Lovasz theta"
+abstract: >-
+  A zero-Mathlib Lean 4.35.0 formalization (verified across six independent proof kernels
+  with zero native_decide and zero sorry), companion Rust/C11/Python verification engines,
+  and AMS-LaTeX preprint establishing: (1) the Intra-Coset Obstruction Theorem for 2D
+  quotient codes in C_n^4 and discovery of the 45-ball subgroup H* = <(1,0,0,2),(0,1,0,4)>
+  yielding infinite exact-ceiling odd-cycle packings for n = 8k+1 and automatic n^2-port
+  systems for n = 16j+9; (2) four consecutive new all-time lower bounds on the Shannon
+  capacity of odd cycles C_25, C_27, C_29, and C_31; (3) exact anatomy, induced C_5 engine,
+  weighted fractional-clique-cover barrier, and two-sided heterogeneous composition for the
+  7-letter separation calculus (resolving Tandon arXiv:2608.30273 Open Problem #2); and
+  (4) the first zero-Mathlib six-kernel proofs of Lovasz's pentagon theorem Theta(C_5)=sqrt(5)
+  and Haemers's 1979 Schlafli-graph Shannon super-multiplicativity paradox.

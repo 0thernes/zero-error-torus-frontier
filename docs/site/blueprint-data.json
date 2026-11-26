@@ -1,0 +1,353 @@
+{
+  "schema_version": "1.0.0",
+  "archive_id": "0TH-2026-014",
+  "lean_version": "4.35.0",
+  "kernels": [
+    "lean",
+    "leanchecker-paranoid",
+    "lean4lean",
+    "nanoda",
+    "con-leche",
+    "con-ron"
+  ],
+  "nodes": [
+    {
+      "id": "GraphCore",
+      "pillar": 0,
+      "file": "lean/ZeroErrorFrontier/GraphCore.lean",
+      "decl": "strongPow",
+      "label": "GraphCore (Strong Products & Powers)",
+      "deps": [],
+      "line": 62,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T1a",
+      "pillar": 1,
+      "file": "lean/ZeroErrorFrontier/CosetQuotient.lean",
+      "decl": "t1a_coset_quotient_compression",
+      "label": "T1a: Coset-Quotient Compression (n\u00b2-to-1)",
+      "deps": [
+        "GraphCore"
+      ],
+      "line": 249,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T1b",
+      "pillar": 1,
+      "file": "lean/ZeroErrorFrontier/CosetQuotient.lean",
+      "decl": "t1b_exact_quotient_ceilings",
+      "label": "T1b: Exact Quotient Ceilings",
+      "deps": [
+        "GraphCore"
+      ],
+      "line": 533,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T1c",
+      "pillar": 1,
+      "file": "lean/ZeroErrorFrontier/CosetQuotient.lean",
+      "decl": "t1c_intracoset_obstruction_and_hstar_flexibility",
+      "label": "T1c: H_BPZ Obstruction vs H* 45-Ball",
+      "deps": [
+        "T1a"
+      ],
+      "line": 556,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T1d",
+      "pillar": 1,
+      "file": "lean/ZeroErrorFrontier/CosetQuotient.lean",
+      "decl": "t1d_infinite_helical_hbpz_family",
+      "label": "T1d: Infinite Helical H_BPZ Family",
+      "deps": [
+        "T1a",
+        "T1b"
+      ],
+      "line": 734,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T1e",
+      "pillar": 1,
+      "file": "lean/ZeroErrorFrontier/CosetQuotient.lean",
+      "decl": "t1e_infinite_hstar_family_and_ports",
+      "label": "T1e: Infinite H* Family & n\u00b2 Ports",
+      "deps": [
+        "T1a",
+        "T1b",
+        "T1c"
+      ],
+      "line": 1206,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T1f",
+      "pillar": 1,
+      "file": "lean/ZeroErrorFrontier/CosetQuotient.lean",
+      "decl": "t1f_baumert_pullback_homomorphism",
+      "label": "T1f: Baumert Pullback Homomorphism",
+      "deps": [
+        "GraphCore"
+      ],
+      "line": 1693,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T3a",
+      "pillar": 3,
+      "file": "lean/ZeroErrorFrontier/SeparationCalculus.lean",
+      "decl": "t3a_g7_induced_c5_and_exact_capacity",
+      "label": "T3a: Hidden C\u2085 Engine & \u0398(G\u2087) = 3",
+      "deps": [
+        "GraphCore"
+      ],
+      "line": 260,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T3b",
+      "pillar": 3,
+      "file": "lean/ZeroErrorFrontier/SeparationCalculus.lean",
+      "decl": "t3b_weighted_fractional_clique_barrier",
+      "label": "T3b: Fractional-Clique-Cover Barrier",
+      "deps": [
+        "GraphCore"
+      ],
+      "line": 404,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T3c",
+      "pillar": 3,
+      "file": "lean/ZeroErrorFrontier/SeparationCalculus.lean",
+      "decl": "t3c_heterogeneous_composition_and_tables",
+      "label": "T3c: Heterogeneous Comp. & Pure Tables",
+      "deps": [
+        "T3a"
+      ],
+      "line": 1071,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T2a",
+      "pillar": 2,
+      "file": "lean/ZeroErrorFrontier/WorldRecords.lean",
+      "decl": "t2a_c25_world_record",
+      "label": "T2a: \u0398(C\u2082\u2085) \u2265 12.344196091426841",
+      "deps": [
+        "T1e",
+        "T3c"
+      ],
+      "line": 446,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T2b",
+      "pillar": 2,
+      "file": "lean/ZeroErrorFrontier/WorldRecords.lean",
+      "decl": "t2b_c27_world_record",
+      "label": "T2b: \u0398(C\u2082\u2087) \u2265 13.319390984674515",
+      "deps": [
+        "T1a",
+        "T1f",
+        "T3c"
+      ],
+      "line": 1833,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T2c",
+      "pillar": 2,
+      "file": "lean/ZeroErrorFrontier/WorldRecords.lean",
+      "decl": "t2c_c29_world_record",
+      "label": "T2c: \u0398(C\u2082\u2089) \u2265 14.319949949077991",
+      "deps": [
+        "T1a",
+        "T1b"
+      ],
+      "line": 514,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T2d",
+      "pillar": 2,
+      "file": "lean/ZeroErrorFrontier/WorldRecords.lean",
+      "decl": "t2d_c31_world_record",
+      "label": "T2d: \u0398(C\u2083\u2081) \u2265 15.308776193986504",
+      "deps": [
+        "T1a",
+        "T1f",
+        "T3c"
+      ],
+      "line": 1875,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T4a",
+      "pillar": 4,
+      "file": "lean/ZeroErrorFrontier/HaemersParadox.lean",
+      "decl": "t4a_haemers_rank_theorem",
+      "label": "T4a: Haemers Matrix-Rank Theorem",
+      "deps": [
+        "GraphCore"
+      ],
+      "line": 320,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T4b",
+      "pillar": 4,
+      "file": "lean/ZeroErrorFrontier/HaemersParadox.lean",
+      "decl": "t4b_integer_orthogonal_handle_sandwich",
+      "label": "T4b: Integer Orthogonal-Handle Sandwich",
+      "deps": [
+        "GraphCore"
+      ],
+      "line": 558,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T4c",
+      "pillar": 4,
+      "file": "lean/ZeroErrorFrontier/HaemersParadox.lean",
+      "decl": "t4c_lovasz_pentagon_theorem",
+      "label": "T4c: Exact Lov\u00e1sz Pentagon \u0398(C\u2085) = \u221a5",
+      "deps": [
+        "T4b"
+      ],
+      "line": 1404,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "T4d",
+      "pillar": 4,
+      "file": "lean/ZeroErrorFrontier/HaemersParadox.lean",
+      "decl": "t4d_haemers_schlafli_paradox",
+      "label": "T4d: Haemers Schl\u00e4fli Paradox (27 > 21)",
+      "deps": [
+        "T4a",
+        "T4b"
+      ],
+      "line": 1849,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    },
+    {
+      "id": "All",
+      "pillar": 5,
+      "file": "lean/Solution.lean",
+      "decl": "all_frontier_theorems",
+      "label": "Palomar Master Bundle (18 Targets)",
+      "deps": [
+        "T1d",
+        "T2a",
+        "T2b",
+        "T2c",
+        "T2d",
+        "T3b",
+        "T4c",
+        "T4d"
+      ],
+      "line": 1,
+      "status": "proved",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security Vulnerability Disclosure
+    url: https://github.com/0thernes/zero-error-torus-frontier/security/advisories/new
+    about: Report soundness or security issues privately (see SECURITY.md).
+  - name: Research Questions & Support
+    url: https://github.com/0thernes/zero-error-torus-frontier/issues
+    about: Open a structured finding report or verification question.

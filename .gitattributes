@@ -1,0 +1,26 @@
+# Normalize line endings; scripts must stay LF even on Windows.
+* text=auto eol=lf
+*.sh text eol=lf
+justfile text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.gz binary
+*.mp4 binary
+*.woff binary
+*.woff2 binary
+
+# Generated or vendored files: hide from language stats and collapse in diffs
+llms-full.txt linguist-generated=true
+docs/build-standard.md linguist-documentation=true
+scripts/audit-checks.tsv linguist-generated=true

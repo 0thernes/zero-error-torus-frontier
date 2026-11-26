@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+[package]
+name = "zero-error-torus-frontier"
+version = "1.0.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["Alexander Stephen Donahue <0_0@0thernes.art>"]
+description = "Zero-dependency Rust verifier and search engine for zero-error Shannon capacity of odd cycles, coset-quotient packings, separation calculus, and Haemers's Schlafli paradox."
+repository = "https://github.com/0thernes/zero-error-torus-frontier"
+readme = "../README.md"
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
