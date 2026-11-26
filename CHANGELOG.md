@@ -5,6 +5,8 @@ Format follows [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/) an
 
 ## [1.0.0] - 2026-11-25
 
+> **Correction (2026-11-26):** this entry keeps the `v1.0.0` wording. An independent statement audit found that: T3c does not resolve any published open problem (it is a two-alphabet form of the BPZ combining rule, Tandon arXiv:2608.30273, Proposition 1); the $C_{27}$ and $C_{31}$ lower bounds are below values published in 2003 (Codenotti–Gerace–Resta, Table 1), so only the $C_{25}$ and $C_{29}$ bounds exceed the largest published values found; "first" for T4d rests on no priority search, and T4d is Haemers's Schläfli-graph example rather than a "paradox"; and the Lean values are $12.344196091426841$, $13.319390984674515$, $14.319949949077991$, $15.308776193986504$, not the decimals printed below. See [`ERRATA.md`](ERRATA.md).
+
 ### Added
 - **Zero-Mathlib Lean 4.35.0 Formalization (`lean/`):**
   - `GraphCore.lean`: finite graphs, strong products $G \boxtimes H$, strong powers $G^{\boxtimes d}$, cycle graphs $C_n$, independence sets, and exact integer power-lifting witnesses.

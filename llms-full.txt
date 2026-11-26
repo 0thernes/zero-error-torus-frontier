@@ -13,28 +13,29 @@ See also [docs/build-standard.md](docs/build-standard.md), [CLAIMS.md](CLAIMS.md
 
 ## Project Summary
 
-**Zero-Error Torus Frontier** is a zero-Mathlib Lean 4.35.0 formalization, multi-language verification suite (Rust + C11 + Python), and AMS-LaTeX white paper advancing the zero-error Shannon capacity frontier of odd cycles and strong-product graphs:
+**Zero-Error Torus Frontier** is a zero-Mathlib Lean 4.35.0 formalization, multi-language verification suite (Rust + C11 + Python), and AMS-LaTeX white paper on lower and upper bounds for the zero-error Shannon capacity of odd cycles and strong-product graphs. Shannon capacity $\Theta$ is not defined in Lean; each capacity bound below follows, outside Lean, from a kernel-checked integer statement about independent sets in a strong power. No published open question is resolved (see [ERRATA.md](ERRATA.md)).
 
-1. **Pillar 1 (Algebraic Quotient-Torus Compression, Intra-Coset Obstruction & Infinite Families):**
-   - Exact $n^2$-to-1 compression for both $H_{\mathrm{BPZ}} = \langle(1,0,0,2),(0,1,2,0)\rangle$ (49-ball) and the new 45-ball subgroup $H^* = \langle(1,0,0,2),(0,1,0,4)\rangle$.
-   - Exact double-counting ceilings $\alpha((C_n^3)^{\boxtimes 2}) \le \lfloor n \lfloor n/4 \rfloor / 4 \rfloor$ and $\alpha(C_n \boxtimes C_n^7) \le \lfloor n \lfloor n/8 \rfloor / 2 \rfloor$.
-   - **Intra-Coset Obstruction Theorem:** explains why $H_{\mathrm{BPZ}}$-coset codes forbid private ports on width-1 quotient gaps while $H^*$ admits unconditional intra-coset-private shifts $e = (0,0,\pm 1,0)$.
-   - **Infinite Exact-Ceiling Families:** closed-form $H_{\mathrm{BPZ}}$ helical staircase for all $n = 4m+1$ ($m \equiv 0,1 \pmod 4$) and closed-form $H^*$ staircase for all $n = 8k+1$ ($k \ge 3$), automatically producing full $H^*$-invariant $n^2$-port `RichPortSystem`s for every $n = 16j+9$ ($C_{25}, C_{41}, C_{57}, \dots$).
-   - **Baumert Pullback Homomorphism Theorem:** 5-line locally-injective homomorphism `pull^d : C_{p+2}^d -> C_p^d` with exact factored cardinality.
-2. **Pillar 2 (Four Consecutive New Odd-Cycle Shannon Capacity Records — Zero `native_decide`):**
-   - $\Theta(C_{25}) \ge 12.344196091426840$ (37-coset $H^*$ + 625-port system, `T3c -> T3e -> C4b`, $p = 144$, beating 55-year Baumert–Hales $12.3310604178$ by $+0.013135674$).
-   - $\Theta(C_{27}) \ge 13.319390984674516$ (Baumert pullback of $Q_{25}$, $31{,}466$ words + 88 ports, beating Baumert–Hales $13.3176204000$).
-   - $\Theta(C_{29}) \ge 14.319949949077992$ (50-coset $H_{\mathrm{BPZ}}$ exact ceiling, $42{,}050$ words, $p = 4$, beating Baumert–Hales $14.3045513000$ by $+0.015398649$).
-   - $\Theta(C_{31}) \ge 15.308776193986503$ (Baumert pullback of $Q_{29}$, $54{,}913$ words + 133 ports, beating Baumert–Hales $15.2906289000$ by $+0.018147294$).
-3. **Pillar 3 (7-Letter Separation Graph $G_7$ Anatomy, Fractional-Clique-Cover Barrier & Tandon Open Problem #2):**
-   - Induced chordless $C_5$ (`B-A-V-H-D`) and exact unweighted capacity $\alpha(G_7) = \bar{\chi}(G_7) = \Theta(G_7) = 3$.
-   - Exact weighted fractional-clique-cover upper barrier $\alpha_w(G_7^{\boxtimes k}) \le \bar{\chi}_f(G_7, w)^k$.
-   - General Multi-Alphabet Two-Sided Heterogeneous Separation-System Composition Theorem resolving Tandon (`arXiv:2608.30273`) Open Problem #2, plus pure-kernel (zero `native_decide`) verification of substitution tables and terminal codes.
-4. **Pillar 4 (First Zero-Mathlib 6-Kernel Proofs of Lovász's Pentagon Theorem & Haemers's 1979 Schläfli Paradox):**
-   - General Haemers Rank Theorem over any `SimpleField F`.
-   - Exact Integer Orthogonal-Handle Sandwich Theorem (zero reals, zero SDP).
-   - Exact Lovász Pentagon Theorem $\Theta(C_5) = \sqrt{5}$ via the $\mathbb{Z}[\sqrt{5}]$ idempotent $M_5^2 = 5(\sqrt{5}-1)M_5$.
-   - Exact Schläfli $G_{27}$ Paradox: 27 vectors in $\mathbb{Z}^8$ with entries in $\{-1,0,1,2\}$ and handle $h=(1,1,1,1,1,1,3,3)$ proving $\alpha(G_{27}^{\boxtimes d}) \le 3^d$, exact $27 \times 7$ $\mathbb{F}_2$ factorization proving $\alpha(\overline{G_{27}}^{\boxtimes d}) \le 7^d$, and diagonal independent set $\alpha(G_{27} \boxtimes \overline{G_{27}}) \ge 27 > 21 = 3 \times 7$.
+1. **Pillar 1 (Coset-Quotient Lifting and Two Families):**
+   - For $n \ge 9$ (resp. $n \ge 15$), an independent set of size $M$ in the quotient graph for $H_{\mathrm{BPZ}} = \langle(1,0,0,2),(0,1,2,0)\rangle$ (49-ball) (resp. $H^* = \langle(1,0,0,2),(0,1,0,4)\rangle$, 45-ball) lifts to $M n^2$ points of $C_n^{\boxtimes 4}$. We did not find $H^*$ in the literature we read; this was not a systematic search.
+   - Double-counting upper bounds $\lfloor n \lfloor n/4 \rfloor / 4 \rfloor$ and $\lfloor n \lfloor n/8 \rfloor / 2 \rfloor$ on these quotient graphs. These bound unions of cosets of one fixed subgroup, not $\alpha(C_n^{\boxtimes 4})$.
+   - `T1c`: for $n \ge 9$, every $H_{\mathrm{BPZ}}$ shift with $e_3 - 2e_0 = \pm 1$ conflicts with another point of its own coset; for $n \ge 15$ the $H^*$ shift $(0,0,\pm 1,0)$ is private; quotient ball sizes 45 versus 49 evaluated at $n = 19, 21, 23, 25$.
+   - `T1d`–`T1e`: two families of coset-union codes that meet the quotient ceiling, $n = 4m+1$ ($m \ge 5$, $m \equiv 0,1 \pmod 4$, $H_{\mathrm{BPZ}}$) and $n = 8k+1$ ($k \ge 3$, $H^*$). All `T1e` sizes equal published bounds (Codenotti–Gerace–Resta 2003, Theorem 1, for odd $k$; Baumert et al. 1971 for even $k$). The $n^2$-port `RichPortSystem` for odd $k$ is the separate declaration `WorldRecords.hstarOddRichPortSystem`, outside the 18-target contract.
+   - `T1f`: the Baumert et al. (1971) expansion map $C_{p+2}^{\boxtimes d} \to C_p^{\boxtimes d}$ ($p \ge 5$) pulls independent sets back to independent sets. The cardinality formula is proved separately (`baumertExpandList_len`, `baumertExpandList_nodup_and_indep`), outside the contract.
+2. **Pillar 2 (Four Kernel-Checked Lower Bounds — Zero `native_decide`):** compared with the largest published values we found, the $d=4$ entries of Codenotti, Gerace and Resta, Ars Combinatoria 66 (2003), Table 1.
+   - $\Theta(C_{25}) \ge 12.344196091426841$ (37-coset $H^*$ + 625-port system, `T3c -> T3e -> C4b`, $p = 144$); $+0.012567519$ over $23125^{1/4}$. The base size 23125 equals the published value.
+   - $\Theta(C_{27}) \ge 13.319390984674515$ (Baumert expansion of $Q_{25}$, $31{,}466$ words + 88 ports); **below** $31522^{1/4} = 13.324577316143$ ($-0.005186$); not best known.
+   - $\Theta(C_{29}) \ge 14.319949949077991$ (50-coset $H_{\mathrm{BPZ}}$ code meeting the quotient ceiling, $42{,}050$ words, $p = 4$); $+0.002810330$ over $42017^{1/4}$.
+   - $\Theta(C_{31}) \ge 15.308776193986504$ (Baumert expansion of $Q_{29}$, $54{,}913$ words + 133 ports); **below** $54934^{1/4} = 15.309475277725$ ($-0.000699$); not best known.
+   - The Lean names `t2b_c27_world_record` and `t2d_c31_world_record` are historical and kept in `v1.0.0` because renaming would change the comparator contract.
+3. **Pillar 3 (Separation Calculus):**
+   - For the 7-vertex graph $G_7$: an induced 5-cycle (`B-A-V-H-D`), $\alpha(G_7) \ge 3$, and $\alpha(G_7^{\boxtimes d}) \le 3^d$ by a 3-clique cover (so $\Theta(G_7) = 3$, outside Lean).
+   - Weighted fractional-clique-cover upper bound $\alpha_w(G_7^{\boxtimes k}) \le \bar{\chi}_f(G_7, w)^k$; optimality is not proved.
+   - `T3c`: a two-alphabet, two-graph form of the BPZ combining rule (Tandon, `arXiv:2608.30273`, Proposition 1; Buys–Polak–Zuiddam, `Realisation.multiSubst`), plus pure-kernel (zero `native_decide`) admissibility of the five BPZ tables. It does not resolve any published open problem.
+4. **Pillar 4 (Integer Forms of Known Upper Bounds):**
+   - Haemers's (1979) matrix-rank bound over any `SimpleField F`.
+   - Integer orthogonal-representation bound for vectors of equal squared norm $D$ (zero reals, zero SDP).
+   - Lovász's (1979) pentagon bound in integer form: $\alpha(C_5^{\boxtimes 2}) \ge 5$ and $\alpha(C_5^{\boxtimes d})^2 \le 5^d$ via the $\mathbb{Z}[\sqrt{5}]$ idempotent $M_5^2 = 5(\sqrt{5}-1)M_5$; $\Theta(C_5) = \sqrt{5}$ follows outside Lean.
+   - Haemers's 1979 Schläfli-graph example, zero-Mathlib and six-kernel-checked: 27 vectors in $\mathbb{Z}^8$ with entries in $\{-1,0,1,2\}$ and handle $h=(1,1,1,1,1,1,3,3)$ give $\alpha(G_{27}^{\boxtimes d}) \le 3^d$, a $27 \times 7$ $\mathbb{F}_2$ factorization gives $\alpha(\overline{G_{27}}^{\boxtimes d}) \le 7^d$, and a diagonal independent set gives $\alpha(G_{27} \boxtimes \overline{G_{27}}) \ge 27 > 21 = 3 \times 7$. No priority claim is made.
 
 ## Non-Negotiable Standing Rules
 

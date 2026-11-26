@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Zero-Error Torus Frontier (0TH-2026-016) — Interactive Research Explorer</title>
-  <meta name="description" content="Zero-Mathlib Lean 4.35.0 six-kernel verified advances on the zero-error Shannon capacity of odd cycles C25, C27, C29, C31, coset-quotient compression, separation-graph barriers, and Haemers's 1979 Schläfli paradox.">
+  <meta name="description" content="Zero-Mathlib Lean 4.35.0 six-kernel-checked lower bounds on the zero-error Shannon capacity of the odd cycles C25, C27, C29, C31, coset-quotient lifting, a weighted clique-cover upper bound, and Haemers's 1979 Schläfli-graph example.">
   <style>
     :root {
       --bg: #0b132b;
@@ -70,6 +70,7 @@
       font-size: 1.25rem; font-weight: 700; color: #ffffff; margin: 0.25rem 0;
     }
     .gain { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; color: var(--green); font-weight: 700; font-size: 0.92rem; }
+    .gain.below { color: var(--orange); }
     .meta { color: var(--muted); font-size: 0.86rem; margin-top: 0.35rem; }
     .panel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem; align-items: start; }
     .controls { display: flex; flex-wrap: wrap; gap: 0.55rem; margin-bottom: 0.9rem; align-items: center; }
@@ -101,53 +102,54 @@
       <div class="eyebrow">Archive 0TH-2026-016 &middot; Zero-Mathlib Lean 4.35.0 &middot; 6 Independent Proof Kernels</div>
       <h1>Zero-Error Torus Frontier</h1>
       <p class="subtitle">
-        Coset-quotient compression, four new machine-verified odd-cycle Shannon capacity records
+        Coset-quotient lifting, four machine-checked lower bounds on the Shannon capacity of the odd cycles
         (<em>C</em><sub>25</sub>, <em>C</em><sub>27</sub>, <em>C</em><sub>29</sub>, <em>C</em><sub>31</sub>),
-        separation-graph barriers, and the first zero-Mathlib six-kernel proof of Haemers's 1979 Schläfli paradox.
+        a weighted clique-cover upper bound, and a zero-Mathlib, six-kernel-checked proof of Haemers's 1979 Schläfli-graph example (no priority claim).
       </p>
       <nav class="top-nav" aria-label="Primary links">
         <a class="btn primary" href="blueprint.html">Interactive Proof Blueprint DAG</a>
         <a class="btn" href="https://github.com/0thernes/zero-error-torus-frontier">GitHub Repository</a>
         <a class="btn" href="https://github.com/0thernes/zero-error-torus-frontier/releases">Frozen PDF &amp; Releases</a>
         <a class="btn" href="#torus-explorer">Torus Explorer</a>
-        <a class="btn" href="#schlafli-explorer">Schläfli Paradox</a>
+        <a class="btn" href="#schlafli-explorer">Schläfli-Graph Example</a>
       </nav>
     </div>
   </header>
 
   <main id="main-content" class="container">
     <section aria-labelledby="records-heading">
-      <h2 id="records-heading">Four Certified World Records Surpassing 1971–1973 Baumert–Hales Bounds</h2>
+      <h2 id="records-heading">Four Kernel-Checked Lower Bounds (C25, C29 above Codenotti–Gerace–Resta 2003; C27, C31 below)</h2>
+      <p class="meta">Comparison: the largest published values we found, the <em>d</em> = 4 entries of Codenotti, Gerace and Resta, Ars Combinatoria 66 (2003), Table 1 (23125, 31522, 42017, 54934). The bounds for <em>C</em><sub>27</sub> and <em>C</em><sub>31</sub> are proved correctly but are weaker than the 2003 values; they are not best known. An earlier version of this page compared against older third-power values and called all four bounds world records; see <a href="https://github.com/0thernes/zero-error-torus-frontier/blob/main/ERRATA.md">ERRATA.md</a>.</p>
       <div class="grid-4">
         <article class="card">
           <h3>&Theta;(<em>C</em><sub>25</sub>) &mdash; Theorem T2a</h3>
           <div class="metric">&ge; 12.344196091426841</div>
-          <div class="gain">+0.013135674 vs. Baumert–Hales</div>
-          <p class="meta"><code>H*</code> 45-ball (37 cosets, 625 ports) &rarr; T3c &rarr; T3e &rarr; C4b (<em>p</em> = 144, 158-digit <em>M</em>). Lovász &vartheta; = 12.450522.</p>
+          <div class="gain">+0.012567519 vs. CGR 2003</div>
+          <p class="meta"><code>H*</code> 45-ball (37 cosets, 625 ports) &rarr; T3c &rarr; T3e &rarr; C4b (<em>p</em> = 144, 158-digit <em>M</em>). The base size 23,125 equals the published value. Lovász &vartheta; = 12.450522.</p>
         </article>
         <article class="card">
           <h3>&Theta;(<em>C</em><sub>27</sub>) &mdash; Theorem T2b</h3>
           <div class="metric">&ge; 13.319390984674515</div>
-          <div class="gain">+0.001770585 vs. Baumert–Hales</div>
-          <p class="meta">Baumert pullback (31,466 words, 88 ports) &rarr; T2a<sup>7</sup> &rarr; C4a (<em>p</em> = 2048, 2,303-digit <em>M</em>). Lovász &vartheta; = 13.454185.</p>
+          <div class="gain below">&minus;0.005186 vs. CGR 2003 (below)</div>
+          <p class="meta">Baumert pullback (31,466 words, 88 ports) &rarr; T2a<sup>7</sup> &rarr; C4a (<em>p</em> = 2048, 2,303-digit <em>M</em>). Lovász &vartheta; = 13.454204.</p>
         </article>
         <article class="card">
           <h3>&Theta;(<em>C</em><sub>29</sub>) &mdash; Theorem T2c</h3>
           <div class="metric">&ge; 14.319949949077991</div>
-          <div class="gain">+0.015398649 vs. Baumert–Hales</div>
-          <p class="meta"><code>H_BPZ</code> 50-coset exact quotient ceiling (42,050 words, <em>p</em> = 4). Lovász &vartheta; = 14.457351.</p>
+          <div class="gain">+0.002810330 vs. CGR 2003</div>
+          <p class="meta"><code>H_BPZ</code> 50-coset exact quotient ceiling (42,050 words, <em>p</em> = 4). Lovász &vartheta; = 14.457375.</p>
         </article>
         <article class="card">
           <h3>&Theta;(<em>C</em><sub>31</sub>) &mdash; Theorem T2d</h3>
           <div class="metric">&ge; 15.308776193986504</div>
-          <div class="gain">+0.018147294 vs. Baumert–Hales</div>
-          <p class="meta">Baumert pullback (54,913 words, 133 ports) &rarr; T2a<sup>7</sup> &rarr; C4a (<em>p</em> = 2048, 2,427-digit <em>M</em>). Lovász &vartheta; = 15.460110.</p>
+          <div class="gain below">&minus;0.000699 vs. CGR 2003 (below)</div>
+          <p class="meta">Baumert pullback (54,913 words, 133 ports) &rarr; T2a<sup>7</sup> &rarr; C4a (<em>p</em> = 2048, 2,427-digit <em>M</em>). Lovász &vartheta; = 15.460135.</p>
         </article>
       </div>
     </section>
 
     <section id="torus-explorer" aria-labelledby="torus-heading">
-      <h2 id="torus-heading">Interactive Quotient Torus Explorer: <em>H</em><sub>BPZ</sub> (49-ball) vs. New <em>H</em>* (45-ball, 625 Ports)</h2>
+      <h2 id="torus-heading">Interactive Quotient Torus Explorer: <em>H</em><sub>BPZ</sub> (49-ball) vs. <em>H</em>* (45-ball, 625 Ports)</h2>
       <div class="controls" role="group" aria-label="Subgroup selection">
         <button id="btn-hstar" class="toggle" aria-pressed="true" type="button">H* = &langle;(1,0,0,2),(0,1,0,4)&rangle; (45-ball + 625 ports)</button>
         <button id="btn-hbpz" class="toggle" aria-pressed="false" type="button">H_BPZ = &langle;(1,0,0,2),(0,1,2,0)&rangle; (49-ball, obstructed)</button>
@@ -164,11 +166,11 @@
             Owner coset p0 = (0,0), private handle p1 = (24,0), isolated D-collision at t = 34: (22,1).
           </div>
           <table style="margin-top: 1rem;">
-            <thead><tr><th>Property</th><th>H<sub>BPZ</sub></th><th>New H*</th></tr></thead>
+            <thead><tr><th>Property</th><th>H<sub>BPZ</sub></th><th>H*</th></tr></thead>
             <tbody>
               <tr><td>Generators</td><td><code>(1,0,0,2), (0,1,2,0)</code></td><td><code>(1,0,0,2), (0,1,0,4)</code></td></tr>
               <tr><td>Forbidden ball |B<sub>Q</sub>|</td><td>49 (7&times;7)</td><td><strong>45 (3&times;15)</strong></td></tr>
-              <tr><td>Unit-shift intra-coset privacy</td><td>Obstructed (Theorem T1c)</td><td><strong>Unconditional (n &ge; 15)</strong></td></tr>
+              <tr><td>Unit-shift intra-coset privacy</td><td>Shifts with e<sub>3</sub> &minus; 2e<sub>0</sub> = &plusmn;1 obstructed, n &ge; 9 (Theorem T1c)</td><td><strong>Shift (0,0,&plusmn;1,0) private (n &ge; 15)</strong></td></tr>
               <tr><td>C<sub>25</sub> simultaneous ports</td><td>0 on tight gaps</td><td><strong>625 (1:1:1 footprint)</strong></td></tr>
             </tbody>
           </table>
@@ -177,7 +179,7 @@
     </section>
 
     <section id="schlafli-explorer" aria-labelledby="schlafli-heading">
-      <h2 id="schlafli-heading">Interactive Haemers 1979 Schläfli Paradox Verifier (Theorem T4d: 27 &gt; 21)</h2>
+      <h2 id="schlafli-heading">Interactive Haemers 1979 Schläfli-Graph Example Verifier (Theorem T4d: 27 &gt; 21)</h2>
       <div class="panel-grid">
         <div>
           <canvas id="schlafli-canvas" width="432" height="432" role="img" aria-label="27 by 27 adjacency matrix of identity plus complement of Schlafli graph with exact F2 rank 7"></canvas>
@@ -200,6 +202,9 @@
         (<code>lean</code>, <code>leanchecker-paranoid</code>, <code>lean4lean</code>, <code>nanoda</code>, <code>con-leche</code>, <code>con-ron</code>).
         Determining the <strong>exact</strong> value of &Theta;(<em>C<sub>n</sub></em>) for odd <em>n</em> &ge; 7
         (Mega-Atlas <code>CS-049</code>) remains <strong>explicitly open</strong>.
+        No published open question is resolved: Theorem T3c is a two-alphabet, two-graph form of the BPZ combining rule
+        (Tandon, arXiv:2608.30273, Proposition 1). Shannon capacity is not defined in Lean; each capacity bound on this page
+        follows, outside Lean, from a kernel-checked integer statement about independent sets in a strong power.
       </p>
     </section>
   </main>

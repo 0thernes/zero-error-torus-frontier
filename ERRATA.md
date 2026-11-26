@@ -93,13 +93,16 @@ The audit rebuilt the Lean library at the pinned commit (`lake build` passed), c
     - Correction: `CITATION.cff` and `lean/formalization.yaml` now use the paper title.
     - Affects a theorem statement: no.
 
-### Other files not corrected in this pass
+### Other files corrected in a follow-up pass (2026-11-26)
 
-These files are outside the set edited on 2026-11-26 and still contain the errors below.
+The first pass left these files unchanged. They were corrected on 2026-11-26 in a second pass:
 
-- `THIRD_PARTY_NOTICES.md`:10–11: the titles given for arXiv:2607.27869 and arXiv:2608.30273 are wrong (correct titles: *A Recursive Construction Improving the Lower Bound on the Shannon Capacity of $C_7$*; *Strengthening Recursive Constructions for Zero-Error Shannon Capacity*), and line 11 repeats the false claim that T3c resolves "Open Problem #2". Correct statement: T3c is a two-alphabet variant of the BPZ combining rule stated as Proposition 1 in the Tandon preprint.
-- `AGENTS.md`:17–20 and `llms-full.txt`:25–28 print $12.344196091426840$, $13.319390984674516$, $14.319949949077992$, $15.308776193986503$. The Lean values are $\ldots841$, $\ldots515$, $\ldots991$, $\ldots504$. Two printed values are larger than what is proved; $14319949949077992^4 \le 42050 \cdot 10^{60}$ is false.
-- `docs/site/` (HTML pages of the project site) may still use the v1.0.0 wording.
+- `THIRD_PARTY_NOTICES.md`: the titles of arXiv:2607.27869 (*A Recursive Construction Improving the Lower Bound on the Shannon Capacity of $C_7$*) and arXiv:2608.30273 (*Strengthening Recursive Constructions for Zero-Error Shannon Capacity*) are corrected, the claim that T3c resolves "Open Problem #2" is removed, and CGR 2003 is credited.
+- `AGENTS.md` and the generated `llms-full.txt`: the "records" wording and the third-power comparison are removed, and the four printed values are now the Lean values $12.344196091426841$, $13.319390984674515$, $14.319949949077991$, $15.308776193986504$ (they had printed $\ldots840$, $\ldots516$, $\ldots992$, $\ldots503$; two of those are larger than what is proved).
+- `docs/site/index.html` (project site) and `docs/media/social-preview.svg` (README image): "world records", the third-power gains, "first" and "paradox" are removed; the comparison is with CGR 2003 Table 1, and the Lovász values are corrected as in item 3(d).
+- `CHANGELOG.md`: a dated correction note is added to the `1.0.0` entry; the entry itself is kept.
+
+Still not corrected (outside the files edited in these passes): the `description` in `repo.yaml` ("world records"); the third-power baselines and gains in `data/witnesses.json`; the "Paradox" label for T4d in `docs/site/blueprint-data.json`, which `scripts/build_blueprint.py` regenerates; and `scripts/generate_figures.py`, which would rewrite `docs/media/social-preview.svg` with the old text.
 
 ### Known issues in the formal code (not yet fixed)
 
