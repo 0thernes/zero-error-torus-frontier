@@ -1,0 +1,40 @@
+{
+  "title": "Coset-Quotient Compression, Separation-Graph Barriers, and Multi-Kernel Verified Frontiers for Zero-Error Shannon Capacity",
+  "description": "Establishes four interconnected, six-kernel Lean 4.35.0 verified advances on zero-error Shannon capacity (Mega-Atlas CS-049): (I) algebraic coset-quotient compression for C_n^{boxtimes 4}, exact double-counting ceilings, the H_BPZ (49-ball) intra-coset port obstruction vs. the subgroup H* = <(1,0,0,2),(0,1,0,4)> (unit-shift privacy for all n >= 15; ball sizes 45 versus 49 evaluated at n = 19, 21, 23, 25), two infinite families of coset-union codes that meet the quotient ceiling (helical H_BPZ for C_{4m+1} with m >= 5 and m = 0 or 1 mod 4; staircase H* for C_{8k+1}, k >= 3, whose sizes equal published values: Baumert et al. 1971 for even k, Codenotti-Gerace-Resta 2003 Theorem 1 for odd k; the n^2-port RichPortSystem for odd k is a separate kernel-checked definition outside the 18-target contract), and the locally-injective Baumert pullback homomorphism C_{p+2}^{boxtimes d} -> C_p^{boxtimes d} with exact factored cardinality; (II) four machine-checked lower bounds: Theta(C_25) >= 12.344196091426841 (p=144) and Theta(C_29) >= 14.319949949077991 (alpha(C_29^{boxtimes 4}) >= 42050), which exceed the largest published values found (Codenotti-Gerace-Resta 2003, Table 1: 23125^(1/4), 42017^(1/4)), and Theta(C_27) >= 13.319390984674515, Theta(C_31) >= 15.308776193986504 (p=2048), which are below the values in that table (31522^(1/4), 54934^(1/4)); (III) an induced 5-cycle inside the 7-letter separation graph G_7, and alpha(G_7) >= 3 with alpha(G_7^d) <= 3^d by a 3-clique cover (hence Theta(G_7)=3), general weighted fractional-clique-cover barrier (46875/2 for C_25), and a two-alphabet, two-graph form of the BPZ combining rule (Tandon arXiv:2608.30273, Proposition 1; the two-sided extension of Tandon's Theorem 1 is not addressed) plus pure-kernel admissibility of the BPZ tables T2a/T3c/T3e/C4a/C4b; and (IV) general Haemers rank theorem over any SimpleField, exact integer orthogonal-handle sandwich theorem, exact Z[sqrt(5)] Lovasz pentagon theorem Theta(C_5)=sqrt(5), and a ...",
+  "upload_type": "software",
+  "license": "apache-2.0",
+  "creators": [
+    {
+      "name": "Donahue, Alexander Stephen",
+      "affiliation": "Independent Researcher, Spokane, WA, USA",
+      "orcid": "0009-0006-8168-9648"
+    }
+  ],
+  "keywords": [
+    "Combinatorics",
+    "Information Theory",
+    "Graph Theory",
+    "Formal Verification",
+    "Lean 4",
+    "Palomar Registry",
+    "open research"
+  ],
+  "notes": "Code and Lean 4.35.0 proofs are licensed under Apache-2.0; manuscripts and figures are licensed under CC-BY-4.0. Independent research preprint (v1.0.0); not externally peer-reviewed. AI tools (Antigravity / Google DeepMind) assisted under human direction and audit. Software Heritage snapshot: swh:1:snp:6794c5e91c92e22925244c886095bc5d12d9fb63.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/0thernes/zero-error-torus-frontier",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://0thernes.github.io/zero-error-torus-frontier/",
+      "relation": "isDocumentedBy",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://archive.softwareheritage.org/swh:1:snp:6794c5e91c92e22925244c886095bc5d12d9fb63",
+      "relation": "isIdenticalTo",
+      "scheme": "url"
+    }
+  ]
+}
