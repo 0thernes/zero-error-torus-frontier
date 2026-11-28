@@ -1,0 +1,138 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+# SPDX-License-Identifier: Apache-2.0
+version: v0.4
+project:
+  name: Coset-Quotient Compression, Separation-Graph Barriers, and Multi-Kernel Verified Frontiers for
+    Zero-Error Shannon Capacity
+  description: Zero-Mathlib Lean 4.35.0 formalization of coset-quotient compression, separation-graph
+    barriers, and multi-kernel verified lower/upper bounds for zero-error Shannon capacity of discrete
+    torus and confusion graphs, via isolated PalomarChallenge/PalomarSolution comparator targets strictly
+    within [propext, Classical.choice, Quot.sound].
+  authors:
+  - Alexander Stephen Donahue
+  responsible_maintainers:
+  - Alexander Stephen Donahue
+  license: Apache-2.0
+  release_version: 1.0.0
+  orcid: 0009-0006-8168-9648
+classification:
+  arxiv:
+  - math.CO
+  - cs.IT
+  - cs.LO
+  msc2020:
+  - 94A24
+  - 05C69
+  - 03B35
+sources:
+- title: Coset-Quotient Compression, Separation-Graph Barriers, and Multi-Kernel Verified Frontiers for
+    Zero-Error Shannon Capacity
+  authors:
+  - Alexander Stephen Donahue
+  id: https://github.com/0thernes/zero-error-torus-frontier
+  type: original-proof
+  relationship: other
+  author_endorsement: participated
+  note: Original zero-Mathlib Lean 4.35.0 formalization and preprint (v1.0.0; SWHID swh:1:snp:6794c5e91c92e22925244c886095bc5d12d9fb63).
+- title: The zero error capacity of a noisy channel
+  authors:
+  - Claude E. Shannon
+  id: https://doi.org/10.1109/TIT.1956.1056798
+  type: article
+  relationship: background
+  author_endorsement: n/a
+automation:
+  methods:
+  - method: manual
+    notes: Alexander Stephen Donahue directed mathematical scoping, statement fidelity audit, and verification
+      governance.
+  - method: agent
+    models:
+    - Gemini
+    framework: Antigravity
+    notes: Assisted with zero-Mathlib Lean 4.35.0 proof engineering and multi-language differential verifiers
+      under human supervision.
+review:
+  status: self-assessed
+  notes: Not externally peer-reviewed. Machine-checked in zero-Mathlib Lean 4.35.0 across 6 independent
+    proof kernels.
+prover:
+  name: Lean 4
+  version: 4.35.0
+  toolchain: leanprover/lean4:v4.35.0
+  mathlib: false
+  zero_mathlib: true
+  module_system: true
+verification:
+  allowed_axioms:
+  - propext
+  - Classical.choice
+  - Quot.sound
+  forbid_sorry: true
+  forbid_admit: true
+  forbid_native_decide: true
+  forbid_custom_axioms: true
+  independent_kernels:
+  - lean (Lean 4.35.0 C++ kernel)
+  - leanchecker-paranoid
+  - lean4lean
+  - nanoda
+  - con-leche
+  - con-ron
+  statement_contract:
+    challenge: PalomarChallenge
+    solution: PalomarSolution
+    comparator_config: comparator.json
+    comparator_flags: --paranoid
+theorems:
+- id: T1a
+  name: t1a_coset_quotient_compression
+  module: ZeroErrorFrontier.CosetQuotient
+- id: T1b
+  name: t1b_exact_quotient_ceilings
+  module: ZeroErrorFrontier.CosetQuotient
+- id: T1c
+  name: t1c_intracoset_obstruction_and_hstar_flexibility
+  module: ZeroErrorFrontier.CosetQuotient
+- id: T1d
+  name: t1d_infinite_helical_hbpz_family
+  module: ZeroErrorFrontier.CosetQuotient
+- id: T1e
+  name: t1e_infinite_hstar_family_and_ports
+  module: ZeroErrorFrontier.CosetQuotient
+- id: T1f
+  name: t1f_baumert_pullback_homomorphism
+  module: ZeroErrorFrontier.CosetQuotient
+- id: T2a
+  name: t2a_c25_world_record
+  module: ZeroErrorFrontier.WorldRecords
+- id: T2b
+  name: t2b_c27_world_record
+  module: ZeroErrorFrontier.WorldRecords
+- id: T2c
+  name: t2c_c29_world_record
+  module: ZeroErrorFrontier.WorldRecords
+- id: T2d
+  name: t2d_c31_world_record
+  module: ZeroErrorFrontier.WorldRecords
+- id: T3a
+  name: t3a_g7_induced_c5_and_exact_capacity
+  module: ZeroErrorFrontier.SeparationCalculus
+- id: T3b
+  name: t3b_weighted_fractional_clique_barrier
+  module: ZeroErrorFrontier.SeparationCalculus
+- id: T3c
+  name: t3c_heterogeneous_composition_and_tables
+  module: ZeroErrorFrontier.SeparationCalculus
+- id: T4a
+  name: t4a_haemers_rank_theorem
+  module: ZeroErrorFrontier.HaemersParadox
+- id: T4b
+  name: t4b_integer_orthogonal_handle_sandwich
+  module: ZeroErrorFrontier.HaemersParadox
+- id: T4c
+  name: t4c_lovasz_pentagon_theorem
+  module: ZeroErrorFrontier.HaemersParadox
+- id: T4d
+  name: t4d_haemers_schlafli_paradox
+  module: ZeroErrorFrontier.HaemersParadox
